@@ -71,7 +71,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="absolute left-1/2 transform -translate-x-1/2">
             <Link href="/" className="block">
-              <Image src="/images/logo-white.png" alt="MERCHBID" width={180} height={40} className="h-10 w-auto" />
+              <Image src="/images/logo-white.png" alt="MERCHBID" width={140} height={30} className="h-8 w-auto" />
             </Link>
           </div>
 
@@ -95,7 +95,7 @@ export default function Navbar() {
         <div className="fixed inset-0 z-50 lg:hidden bg-black">
           <div className="flex justify-between items-center p-4 border-b border-gray-800">
             <Link href="/" className="block">
-              <Image src="/images/logo-white.png" alt="MERCHBID" width={150} height={35} className="h-8 w-auto" />
+              <Image src="/images/logo-white.png" alt="MERCHBID" width={120} height={25} className="h-6 w-auto" />
             </Link>
             <button className="text-white" onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
               <X className="h-6 w-6" />

@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ChevronLeft, ChevronRight, ShoppingCart, Heart } from "lucide-react"
+import { ShoppingCart, Heart } from "lucide-react"
 
 const products = [
   {
@@ -66,28 +66,45 @@ const products = [
     sizes: ["M", "L", "XL", "XXL"],
     isNew: false,
   },
+  {
+    id: 7,
+    name: "Gym Beast Mode T-Shirt",
+    price: "$28.99",
+    image: "/placeholder.svg?height=400&width=400",
+    category: "Gym Collection",
+    colors: ["black", "gray", "red"],
+    sizes: ["S", "M", "L", "XL"],
+    isNew: true,
+  },
+  {
+    id: 8,
+    name: "Fitness Performance Tank",
+    price: "$24.99",
+    image: "/placeholder.svg?height=400&width=400",
+    category: "Gym Collection",
+    colors: ["blue", "black", "white"],
+    sizes: ["S", "M", "L", "XL"],
+    isNew: false,
+  },
+  {
+    id: 9,
+    name: "Muscle Car Legends Hoodie",
+    price: "$54.99",
+    image: "/placeholder.svg?height=400&width=400",
+    category: "Automotive Collection",
+    colors: ["black", "navy"],
+    sizes: ["M", "L", "XL", "XXL"],
+    isNew: true,
+  },
 ]
 
 export default function FeaturedCollection() {
   const [activeCategory, setActiveCategory] = useState("All")
-  const [currentSlide, setCurrentSlide] = useState(0)
 
-  const categories = ["All", "Anime Collection", "Automotive Collection"]
+  const categories = ["All", "Anime Collection", "Automotive Collection", "Gym Collection"]
 
   const filteredProducts =
     activeCategory === "All" ? products : products.filter((product) => product.category === activeCategory)
-
-  const totalSlides = Math.ceil(filteredProducts.length / 3)
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides)
-  }
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides)
-  }
-
-  const visibleProducts = filteredProducts.slice(currentSlide * 3, (currentSlide + 1) * 3)
 
   return (
     <section className="py-16 bg-gray-50">
@@ -98,14 +115,11 @@ export default function FeaturedCollection() {
             <h2 className="text-4xl md:text-5xl font-bold">FEATURED COLLECTION</h2>
           </div>
 
-          <div className="flex space-x-2 mt-4 md:mt-0">
+          <div className="flex flex-wrap gap-2 mt-4 md:mt-0">
             {categories.map((category) => (
               <button
                 key={category}
-                onClick={() => {
-                  setActiveCategory(category)
-                  setCurrentSlide(0)
-                }}
+                onClick={() => setActiveCategory(category)}
                 className={`px-4 py-2 text-sm font-medium transition-colors ${
                   activeCategory === category
                     ? "bg-black text-white"
@@ -120,101 +134,76 @@ export default function FeaturedCollection() {
 
         <hr className="border-t border-gray-300 mb-8" />
 
-        <div className="relative">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {visibleProducts.map((product) => (
-              <div key={product.id} className="group relative">
-                <div className="relative bg-gray-100 aspect-square mb-4 overflow-hidden rounded-lg">
-                  <Link href={`/shop/product-${product.id}`}>
-                    <Image
-                      src={product.image || "/placeholder.svg"}
-                      alt={product.name}
-                      width={600}
-                      height={600}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </Link>
-
-                  {product.isNew && (
-                    <div className="absolute top-4 left-4 bg-red-600 text-white text-xs px-3 py-1 rounded-full uppercase font-medium">
-                      New
-                    </div>
-                  )}
-
-                  <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <div className="flex justify-between items-center">
-                      <button className="bg-white text-black px-4 py-2 rounded-sm flex items-center gap-2 hover:bg-gray-200 transition-colors">
-                        <ShoppingCart size={16} />
-                        <span>Add to Cart</span>
-                      </button>
-                      <button className="bg-transparent border border-white text-white p-2 rounded-full hover:bg-white hover:text-black transition-colors">
-                        <Heart size={16} />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProducts.map((product) => (
+            <div key={product.id} className="group relative">
+              <div className="relative bg-gray-100 aspect-square mb-4 overflow-hidden rounded-lg">
                 <Link href={`/shop/product-${product.id}`}>
-                  <h3 className="font-bold text-lg">{product.name}</h3>
+                  <Image
+                    src={product.image || "/placeholder.svg"}
+                    alt={product.name}
+                    width={600}
+                    height={600}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
                 </Link>
-                <p className="text-gray-600 mb-2">{product.price}</p>
 
-                <div className="flex items-center gap-4">
-                  <div className="flex space-x-1">
-                    {product.colors.map((color) => (
-                      <div
-                        key={color}
-                        className="w-4 h-4 rounded-full border border-gray-300"
-                        style={{
-                          backgroundColor:
-                            color === "cream"
-                              ? "#F5F5DC"
-                              : color === "black"
-                                ? "#000"
-                                : color === "gray"
-                                  ? "#808080"
-                                  : color === "white"
-                                    ? "#FFF"
-                                    : color,
-                        }}
-                      />
-                    ))}
+                {product.isNew && (
+                  <div className="absolute top-4 left-4 bg-red-600 text-white text-xs px-3 py-1 rounded-full uppercase font-medium">
+                    New
                   </div>
+                )}
 
-                  <div className="text-sm text-gray-500">{product.sizes.join(", ")}</div>
+                <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <div className="flex justify-between items-center">
+                    <button className="bg-white text-black px-4 py-2 rounded-sm flex items-center gap-2 hover:bg-gray-200 transition-colors">
+                      <ShoppingCart size={16} />
+                      <span>Add to Cart</span>
+                    </button>
+                    <button className="bg-transparent border border-white text-white p-2 rounded-full hover:bg-white hover:text-black transition-colors">
+                      <Heart size={16} />
+                    </button>
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
 
-          {totalSlides > 1 && (
-            <div className="flex justify-center mt-8 gap-4">
-              <button
-                onClick={prevSlide}
-                className="p-2 border border-gray-300 rounded-full hover:bg-black hover:text-white transition-colors"
-                aria-label="Previous slide"
-              >
-                <ChevronLeft size={24} />
-              </button>
-              <div className="flex items-center gap-2">
-                {Array.from({ length: totalSlides }).map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentSlide(index)}
-                    className={`w-2 h-2 rounded-full ${currentSlide === index ? "bg-black" : "bg-gray-300"}`}
-                    aria-label={`Go to slide ${index + 1}`}
-                  />
-                ))}
+              <Link href={`/shop/product-${product.id}`}>
+                <h3 className="font-bold text-lg">{product.name}</h3>
+              </Link>
+              <p className="text-gray-600 mb-2">{product.price}</p>
+
+              <div className="flex items-center gap-4">
+                <div className="flex space-x-1">
+                  {product.colors.map((color) => (
+                    <div
+                      key={color}
+                      className="w-4 h-4 rounded-full border border-gray-300"
+                      style={{
+                        backgroundColor:
+                          color === "cream"
+                            ? "#F5F5DC"
+                            : color === "black"
+                              ? "#000"
+                              : color === "gray"
+                                ? "#808080"
+                                : color === "white"
+                                  ? "#FFF"
+                                  : color === "red"
+                                    ? "#DC2626"
+                                    : color === "blue"
+                                      ? "#3B82F6"
+                                      : color === "navy"
+                                        ? "#1E3A8A"
+                                        : color,
+                      }}
+                    />
+                  ))}
+                </div>
+
+                <div className="text-sm text-gray-500">{product.sizes.join(", ")}</div>
               </div>
-              <button
-                onClick={nextSlide}
-                className="p-2 border border-gray-300 rounded-full hover:bg-black hover:text-white transition-colors"
-                aria-label="Next slide"
-              >
-                <ChevronRight size={24} />
-              </button>
             </div>
-          )}
+          ))}
         </div>
 
         <div className="flex justify-center mt-12">
