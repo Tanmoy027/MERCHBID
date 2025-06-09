@@ -32,6 +32,13 @@ const collections = [
     image: "/images/dodge-challenger-tshirt.jpeg",
     href: "/shop/car",
   },
+  {
+    id: 5,
+    title: "Merchbid Trad",
+    description: "Traditional designs with a modern twist. Classic patterns and timeless aesthetics for everyday wear.",
+    image: "/images/open-road-tshirt.jpeg",
+    href: "/shop/trad",
+  },
 ]
 
 export default function CollectionCards() {
@@ -45,10 +52,10 @@ export default function CollectionCards() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {collections.map((collection) => (
-            <div key={collection.id} className="bg-white rounded-lg overflow-hidden shadow-lg group">
-              <div className="relative h-64 overflow-hidden">
+            <div key={collection.id} className="bg-white rounded-lg overflow-hidden shadow-lg group h-full">
+              <div className="relative h-48 sm:h-56 overflow-hidden">
                 <Image
                   src={collection.image || "/placeholder.svg"}
                   alt={collection.title}
@@ -59,18 +66,18 @@ export default function CollectionCards() {
                 <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <Link
                     href={collection.href}
-                    className="bg-white text-black px-6 py-2 rounded-sm font-medium transform -translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+                    className="bg-white text-black px-4 py-2 rounded-sm font-medium transform -translate-y-4 group-hover:translate-y-0 transition-transform duration-300 text-sm"
                   >
                     View Collection
                   </Link>
                 </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{collection.title}</h3>
-                <p className="text-gray-600 mb-4 line-clamp-2">{collection.description}</p>
+              <div className="p-4">
+                <h3 className="text-lg font-bold mb-2">{collection.title}</h3>
+                <p className="text-gray-600 mb-4 text-sm line-clamp-2">{collection.description}</p>
                 <Link
                   href={collection.href}
-                  className="inline-block bg-black text-white px-6 py-2 font-medium hover:bg-gray-800 transition-colors"
+                  className="inline-block bg-black text-white px-4 py-2 text-sm font-medium hover:bg-gray-800 transition-colors w-full text-center"
                 >
                   Shop Now
                 </Link>

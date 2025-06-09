@@ -22,21 +22,26 @@ export default function CategoryButtons() {
       href: "/shop/car",
       description: "Automotive Style",
     },
+    {
+      name: "Merchbid Trad",
+      href: "/shop/trad",
+      description: "Traditional Designs",
+    },
   ]
 
   return (
     <section className="py-12 bg-black">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {categories.map((category, index) => (
             <Link
               key={category.name}
               href={category.href}
-              className="group relative bg-white text-black py-8 px-6 text-center font-bold uppercase tracking-wider transition-all duration-300 hover:bg-black hover:text-white border-2 border-transparent hover:border-white overflow-hidden"
+              className="group relative bg-white text-black py-6 px-4 text-center font-bold uppercase tracking-wider transition-all duration-300 hover:bg-black hover:text-white border-2 border-transparent hover:border-white overflow-hidden"
             >
               <div className="relative z-10">
-                <div className="text-lg font-bold mb-2">{category.name}</div>
-                <div className="text-sm font-normal opacity-70 group-hover:opacity-100 transition-opacity">
+                <div className="text-base md:text-lg font-bold mb-1 md:mb-2">{category.name}</div>
+                <div className="text-xs md:text-sm font-normal opacity-70 group-hover:opacity-100 transition-opacity">
                   {category.description}
                 </div>
               </div>

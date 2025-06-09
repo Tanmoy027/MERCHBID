@@ -138,7 +138,7 @@ export default function FeaturedCollection() {
           {filteredProducts.map((product) => (
             <div key={product.id} className="group relative">
               <div className="relative bg-gray-100 aspect-square mb-4 overflow-hidden rounded-lg">
-                <Link href={`/shop/product-${product.id}`}>
+                <Link href="/product">
                   <Image
                     src={product.image || "/placeholder.svg"}
                     alt={product.name}
@@ -167,7 +167,7 @@ export default function FeaturedCollection() {
                 </div>
               </div>
 
-              <Link href={`/shop/product-${product.id}`}>
+              <Link href="/product">
                 <h3 className="font-bold text-lg">{product.name}</h3>
               </Link>
               <p className="text-gray-600 mb-2">{product.price}</p>

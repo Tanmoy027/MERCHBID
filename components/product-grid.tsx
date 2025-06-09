@@ -57,7 +57,6 @@ const products = [
     name: "LEGGINGS AND BRA",
     price: "$55.00 - $75.00",
     image: "/placeholder.svg?height=400&width=400",
-    link: "/shop/leggings-and-bra",
   },
 ]
 
@@ -67,7 +66,7 @@ export default function ProductGrid() {
       {products.map((product) => (
         <div key={product.id} className="group">
           <div className="relative bg-gray-100 aspect-square mb-4">
-            <Link href={product.link || `/shop/product-${product.id}`}>
+            <Link href="/product">
               <Image
                 src={product.image || "/placeholder.svg"}
                 alt={product.name}
@@ -101,7 +100,7 @@ export default function ProductGrid() {
               </svg>
             </button>
           </div>
-          <Link href={product.link || `/shop/product-${product.id}`}>
+          <Link href="/product">
             <h3 className="font-bold">{product.name}</h3>
           </Link>
           <p className="text-gray-600">{product.price}</p>
