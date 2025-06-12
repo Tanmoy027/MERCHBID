@@ -24,7 +24,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? "bg-black py-2" : "bg-transparent py-4"}`}
+      className="fixed w-full z-50 transition-all duration-300 bg-black py-4"
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
@@ -41,18 +41,6 @@ export default function Navbar() {
           <nav className="hidden lg:flex items-center space-x-6">
             <Link href="/" className="border-b border-white text-sm font-medium uppercase tracking-wide text-white">
               Home
-            </Link>
-            <Link
-              href="/pages"
-              className="text-sm font-medium uppercase tracking-wide text-white hover:border-b hover:border-white"
-            >
-              Pages
-            </Link>
-            <Link
-              href="/blog"
-              className="text-sm font-medium uppercase tracking-wide text-white hover:border-b hover:border-white"
-            >
-              Blog
             </Link>
             <Link
               href="/shop"
@@ -105,20 +93,6 @@ export default function Navbar() {
             <div className="space-y-4 py-4">
               <Link href="/" className="block text-lg font-medium text-white" onClick={() => setMobileMenuOpen(false)}>
                 Home
-              </Link>
-              <Link
-                href="/pages"
-                className="block text-lg font-medium text-white"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Pages
-              </Link>
-              <Link
-                href="/blog"
-                className="block text-lg font-medium text-white"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Blog
               </Link>
               <Link
                 href="/shop"

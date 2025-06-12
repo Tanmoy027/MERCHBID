@@ -3,6 +3,11 @@ import Link from "next/link"
 export default function CategoryButtons() {
   const categories = [
     {
+      name: "Merchbid Trend ",
+      href: "/shop/trad",
+      description: "Traditional Designs",
+    },
+    {
       name: "Harley Riders United",
       href: "/shop/harley-riders",
       description: "Motorcycle Culture",
@@ -21,11 +26,6 @@ export default function CategoryButtons() {
       name: "Merchbid Car",
       href: "/shop/car",
       description: "Automotive Style",
-    },
-    {
-      name: "Merchbid Trad",
-      href: "/shop/trad",
-      description: "Traditional Designs",
     },
   ]
 

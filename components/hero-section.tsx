@@ -4,9 +4,9 @@ export default function HeroSection() {
   return (
     <section className="relative w-full bg-black text-white pt-20">
       <div className="container mx-auto px-4 pt-16 pb-6 relative z-10">
-        <h1 className="text-7xl md:text-8xl font-bold tracking-tight mb-4">DYNAMIC APPAREL</h1>
+        <h1 className="text-7xl md:text-8xl font-bold tracking-tight mb-4">Buy the design that your dreams</h1>
         <p className="text-center text-sm max-w-4xl mx-auto uppercase">
-          YOUR NEXT RUN JUST GOT BETTER. USE CODE MERCHBID10 FOR 10% OFF AND GET THE SHOES BUILT FOR YOUR FASTEST PACE.
+          USE CODE MERCHBID10 FOR 10% OFF YOUR FIRST PURCHASE
         </p>
       </div>
 
@@ -20,19 +20,7 @@ export default function HeroSection() {
           className="w-full h-full object-cover"
           priority
         />
-        <div className="absolute inset-0 flex items-center z-20">
-          <div className="container mx-auto px-4">
-            <div className="flex justify-end">
-              <Image
-                src="/images/trib-logo-white.png"
-                alt="TRIB logo"
-                width={300}
-                height={200}
-                className="w-64 md:w-80 h-auto opacity-40"
-              />
-            </div>
-          </div>
-        </div>
+
       </div>
 
       <div className="flex justify-between items-center px-4 md:px-14 py-4 bg-black">

@@ -2,8 +2,16 @@ import Image from "next/image"
 import Link from "next/link"
 
 const collections = [
-  {
+    {
     id: 1,
+    title: "Merchbid Trend",
+    description: "Traditional designs with a modern twist. Classic patterns and timeless aesthetics for everyday wear.",
+    image: "/images/open-road-tshirt.jpeg",
+    href: "/shop/trad",
+  },
+  {
+    
+    id: 2,
     title: "Harley Riders United",
     description:
       "Premium apparel for motorcycle enthusiasts. Featuring vintage designs and classic Harley-inspired graphics.",
@@ -11,7 +19,7 @@ const collections = [
     href: "/shop/harley-riders",
   },
   {
-    id: 2,
+    id: 3,
     title: "Merchbid Anime",
     description:
       "Exclusive anime collection featuring your favorite characters from Baki Hanma and more popular series.",
@@ -19,26 +27,20 @@ const collections = [
     href: "/shop/anime",
   },
   {
-    id: 3,
+    id: 4,
     title: "Merchbid Gym",
     description: "Performance wear designed for athletes. Comfortable, durable, and stylish for your workout sessions.",
     image: "/placeholder.svg?height=400&width=400",
     href: "/shop/gym",
   },
   {
-    id: 4,
+    id: 5,
     title: "Merchbid Car",
     description: "Automotive enthusiast collection featuring iconic cars like the Dodge Challenger and Toyota Supra.",
     image: "/images/dodge-challenger-tshirt.jpeg",
     href: "/shop/car",
   },
-  {
-    id: 5,
-    title: "Merchbid Trad",
-    description: "Traditional designs with a modern twist. Classic patterns and timeless aesthetics for everyday wear.",
-    image: "/images/open-road-tshirt.jpeg",
-    href: "/shop/trad",
-  },
+
 ]
 
 export default function CollectionCards() {
